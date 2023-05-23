@@ -31,7 +31,7 @@ class BasePage:
     def element_is_present(self, locator, timeout=5):   # by default timeout for 5 sec
         return wait(self.driver, timeout).until(EC.presence_of_element_located(locator))
 
-    def element_are_present(self, locator, timeout=5):   # by default timeout for 5 sec
+    def elements_are_present(self, locator, timeout=5):   # by default timeout for 5 sec
         return wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
 
     """An element is either invisible or not present on the DOM.

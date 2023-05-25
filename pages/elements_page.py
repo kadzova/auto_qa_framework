@@ -60,7 +60,7 @@ class CheckBoxPage(BasePage):
         for box in checked_list:
             title_item = box.find_element(*self.locators.TITLE_ITEM)
             data.append(title_item.text)
-        return data
+        return str(data).replace(' ', '').replace('doc', '').replace('.', '').lower()
 
         # item = items_list[random.randint(1, 15)] # click 1 random checkbox
         # self.go_to_element(item)
@@ -75,5 +75,4 @@ class CheckBoxPage(BasePage):
         data = []
         for item in result_list:
             data.append(item.text)
-        return data
-
+        return str(data).replace(' ', '').lower()

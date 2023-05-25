@@ -31,7 +31,7 @@ class BasePage:
     def element_is_present(self, locator, timeout=5):   # by default timeout for 5 sec
         return wait(self.driver, timeout).until(EC.presence_of_element_located(locator))
 
-    def element_are_present(self, locator, timeout=5):   # by default timeout for 5 sec
+    def elements_are_present(self, locator, timeout=5):   # by default timeout for 5 sec
         return wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
 
     """An element is either invisible or not present on the DOM.
@@ -59,5 +59,7 @@ class BasePage:
     def go_to_element(self, element):
         self.driver.execute_script("argument[0].scrollIntoView();", element)
 
-
+    def remove_footer(self):
+        self.driver.execute_script("document.getElementsByTagName('footer')[0].remove();")
+        self.driver.execute_script("document.getElementById('fixedban').style.display='none'")
 
